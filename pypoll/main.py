@@ -4,7 +4,6 @@ import os
 import csv
 
 poll_csv= os.path.join("resources", "election_data.csv")
-#"C:\Users\alyss\OneDrive\Desktop\Python\python_challenge\pypoll\resources\election_data.csv"
 
 #list that stores data
 vote= []
