@@ -9,8 +9,6 @@ poll_csv= os.path.join("resources", "election_data.csv")
 #list that stores data
 vote= []
 candidate= []
-#name_dict= {}
-
 
 #variables set to 0
 totalvote= 0
@@ -45,9 +43,10 @@ with open(poll_csv) as csvfile:
         percentraymon= round((RaymonAnthonyDoane/totalvote)*100,3)
 
         #winner of election based on popular vote
-        candidates= [CharlesCasperStockham, DianaDeGette, RaymonAnthonyDoane]
-        winner= max(candidates)
+        candidates= {"Charles Casper Stockham":CharlesCasperStockham, "Diana DeGette":DianaDeGette, "Raymon Anthony Doane":RaymonAnthonyDoane}
+        winner= max(candidates, key=candidates.get)
         
+
 
 #print results
 print("                    ")
@@ -60,7 +59,9 @@ print("                    ")
 print("--------------------")
 print("                    ")
 print(f"Charles Casper Stockham: {percentcharles}% ({CharlesCasperStockham})")
+print("                    ")
 print(f"Diana DeGette: {percentdiana}% ({DianaDeGette})")
+print("                    ")
 print(f"Raymon Anthony Doane: {percentraymon}% ({RaymonAnthonyDoane})")
 print("                      ")
 print("----------------------")
@@ -68,3 +69,26 @@ print("                      ")
 print(f"Winner: {winner}")
 print("                      ")
 print("----------------------")
+
+#export to a text file
+with open("election_analysis.txt", "w") as text:
+    text.write("                    \n")
+    text.write("Election Results\n")
+    text.write("                    \n")
+    text.write("--------------------\n")
+    text.write("                    \n")
+    text.write(f"Total Votes: {totalvote}\n")
+    text.write("                    \n")
+    text.write("--------------------\n")
+    text.write("                    \n")
+    text.write(f"Charles Casper Stockham: {percentcharles}% ({CharlesCasperStockham})\n")
+    text.write("                    \n")
+    text.write(f"Diana DeGette: {percentdiana}% ({DianaDeGette})\n")
+    text.write("                    \n")
+    text.write(f"Raymon Anthony Doane: {percentraymon}% ({RaymonAnthonyDoane})\n")
+    text.write("                      \n")
+    text.write("----------------------\n")
+    text.write("                      \n")
+    text.write(f"Winner: {winner}\n")
+    text.write("                      \n")
+    text.write("----------------------\n")
