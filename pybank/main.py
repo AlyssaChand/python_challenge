@@ -16,15 +16,11 @@ totalmonths= 0
 totalprofitloss= 0
 previousloss= 0
 
-
-
 # with open csv
 with open(budget_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     header= next(csvreader)
     
-
-
     for row in csvreader:
 
         months.append(row[0])

@@ -46,8 +46,6 @@ with open(poll_csv) as csvfile:
         candidates= {"Charles Casper Stockham":CharlesCasperStockham, "Diana DeGette":DianaDeGette, "Raymon Anthony Doane":RaymonAnthonyDoane}
         winner= max(candidates, key=candidates.get)
         
-
-
 #print results
 print("                    ")
 print("Election Results")
